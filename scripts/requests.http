@@ -1,4 +1,40 @@
 ### Hello World
 GET {{API_HOST}}/
 
-###
+
+
+### Lista usuários
+GET {{API_HOST}}/users
+Content-Type: application/json
+
+
+### Cria um usuário
+< {%
+  request.variables.set("username", 'alepontes')
+  request.variables.set("password", 'abc123')
+  request.variables.set("birthdate", '1999-06-28')
+%}
+POST {{API_HOST}}/users/signup
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}",
+  "birthdate": "{{birthdate}}"
+}
+
+
+### Faz login
+< {%
+  request.variables.set("username", 'alepontes')
+  request.variables.set("password", 'abc123')
+%}
+POST {{API_HOST}}/users/signin
+Content-Type: application/json
+
+{
+  "username": "{{username}}",
+  "password": "{{password}}"
+}
+
+

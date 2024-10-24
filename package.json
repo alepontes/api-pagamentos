@@ -1,8 +1,12 @@
 {
-  "name": "nest-typescript-starter",
+  "name": "api-boletos",
   "private": true,
   "version": "1.0.0",
-  "description": "Nest TypeScript starter repository",
+  "description": "API de pagamentos",
+  "author": {
+    "name": "alepontes",
+    "email": "alexandrelopespontes@gmail.com"
+  },
   "license": "MIT",
   "scripts": {
     "build": "nest build",

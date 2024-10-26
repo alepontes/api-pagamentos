@@ -7,6 +7,7 @@ import { User } from './users/entities/user.entity';
 
 @Module({
   imports: [
+    // @todo Mover para ENVS
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',

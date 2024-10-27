@@ -25,4 +25,11 @@ export class User {
   haveBalance(amount: number): boolean {
     return this.balance >= amount;
   }
+
+  constructor(user?: Partial<User>) {
+    this.username = user?.username;
+    this.password = user?.password;
+    this.birthdate = user?.birthdate;
+    this.balance = user?.balance;
+  }
 }

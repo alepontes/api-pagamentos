@@ -24,12 +24,15 @@ export class UsersService {
   async signUp(signUpDto: SignUpDto) {
     const hashPass = await bcrypt.hash(signUpDto.password, salts);
 
-    const user = this.repository.create({
+    const userData = this.repository.create({
       ...signUpDto,
       password: hashPass,
     });
 
-    return this.repository.save(user);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { id, ...user } = await this.repository.save(userData);
+
+    return { id };
   }
 
   async signIn(signInDto: SignInDto) {
@@ -83,6 +86,8 @@ export class UsersService {
   }
 
   findAll() {
-    return this.repository.find();
+    return this.repository.find({
+      select: ['id', 'username', 'birthdate', 'balance'],
+    });
   }
 }

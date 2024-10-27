@@ -4,7 +4,7 @@ GET {{API_HOST}}/
 
 ### Cria um usuário
 < {%
-  request.variables.set("username", 'alepontes')
+  request.variables.set("username", 'elonmusk')
   request.variables.set("password", 'abc123')
   request.variables.set("birthdate", '1999-06-28')
 %}
@@ -38,3 +38,15 @@ Content-Type: application/json
 GET {{API_HOST}}/users
 Content-Type: application/json
 Authorization: Bearer {{token}}
+
+
+### Realiza ums transferência
+POST {{API_HOST}}/transfer
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "fromId": 7,
+  "toId": 8,
+  "amount": 0.00
+}

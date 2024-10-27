@@ -1,4 +1,8 @@
-import { Injectable, UnauthorizedException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { SignUpDto } from './dto/signUpDto';
 import { SignInDto } from './dto/signInDto';
 import { Repository } from 'typeorm';
@@ -54,6 +58,28 @@ export class UsersService {
       token,
       expiresIn,
     };
+  }
+
+  async getById(id: number) {
+    const user = await this.repository.findOne({ where: { id } });
+
+    if (!user) {
+      throw new NotFoundException(`Usuário ${id} não encontrado`);
+    }
+
+    return user;
+  }
+
+  deposit(user: User, value: number) {
+    const balance: number = +user.balance;
+    user.balance = balance + value + Number.EPSILON;
+    this.repository.update(user.id, user);
+  }
+
+  withdraw(user: User, value: number) {
+    const balance: number = +user.balance;
+    user.balance = balance - value + Number.EPSILON;
+    this.repository.update(user.id, user);
   }
 
   findAll() {

@@ -19,7 +19,7 @@ export class User {
   @Column()
   birthdate: string;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
+  @Column({ type: 'decimal', precision: 10, scale: 2, default: 100 })
   balance: number;
 
   haveBalance(amount: number): boolean {

@@ -25,6 +25,9 @@ import { TransfersModule } from './transfers/transfers.module';
         database: configService.get<string>('POSTGRES_DB'),
         entities: [User],
         synchronize: true,
+        ssl: {
+          rejectUnauthorized: false,
+        },
       }),
     }),
     UsersModule,

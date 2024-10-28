@@ -2,6 +2,8 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import { MaxLength, MinLength } from 'class-validator';
 
+const defaultBalance = 100;
+
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn()
@@ -19,7 +21,7 @@ export class User {
   @Column()
   birthdate: string;
 
-  @Column({ type: 'decimal', precision: 10, scale: 2, default: 100 })
+  @Column({ type: 'decimal', precision: 10, scale: 2, default: defaultBalance })
   balance: number;
 
   haveBalance(amount: number): boolean {

@@ -399,5 +399,5 @@ dist
 .webpack
 .serverless/**/*.zip
 
-.env
+#.env
 playground

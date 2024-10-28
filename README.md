@@ -12,3 +12,4 @@ API que simula transferências simples ([CHALLENGE](CHALLENGE.md))
 ## Observações
 - Caso use Webstorm, Requests disponíves [scripts/requests.http](scripts/requests.http)
 - Os usuário são criados com `balance` de 100 para facilitar testes, definido em [src/users/entities/user.entity.ts](src/users/entities/user.entity.ts)
+- Adicionei o arquivo .[env](.env) para facilidar a execução do código localmente
